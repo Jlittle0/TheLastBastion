@@ -20,23 +20,30 @@ public class Game implements Runnable {
     private Tutorial tutorial;
     private SoundControls soundControls;
 
-
     // Size of each "tile" used in the level maps in pixels
-    public final static int TILES_DEFAULT_WIDTH = 100;
-    public final static int TILES_DEFAULT_HEIGHT = 50;
+    public final static int TILES_DEFAULT_WIDTH = 32;
+    public final static int TILES_DEFAULT_HEIGHT = 32;
 
-    public final static float SCALE = 1.50f;
+    public final static float SCALE = 1.00f;
 
     // Desired number of visible tiles for game screen
     public final static int TILES_IN_WIDTH  = 26;
     public final static int TILES_IN_HEIGHT  = 14;
 
-    public final static int TILE_WIDTH = (int)(TILES_DEFAULT_WIDTH * SCALE);
-    public final static int TILE_HEIGHT = (int)(TILES_DEFAULT_HEIGHT * SCALE);
+    // Found this on the internet to get the actual dimensions of the users screen.
+    public final static GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+    public final static GraphicsDevice gd = ge.getDefaultScreenDevice();
+    public final static GraphicsConfiguration gc = gd.getDefaultConfiguration();
 
-    // Determines the size of the window by using the # of desired tiles
-    public final static int GAME_WIDTH = TILE_WIDTH * TILES_IN_WIDTH;
-    public final static int GAME_HEIGHT = TILE_HEIGHT* TILES_IN_HEIGHT;
+    public final static Rectangle screenBounds = gc.getBounds();
+
+    public final static Insets screenInsets = Toolkit.getDefaultToolkit().getScreenInsets(gc);
+
+    public final static int usableWidth = screenBounds.width - screenInsets.left - screenInsets.right;
+    public final static int usableHeight = screenBounds.height - screenInsets.top - screenInsets.bottom;
+
+    public final static int GAME_WIDTH =  usableWidth;
+    public final static int GAME_HEIGHT = usableHeight;
 
     public Game() {
         initClasses();
@@ -160,10 +167,7 @@ public class Game implements Runnable {
         }
     }
 
-    public void windowFocusLost() {
-        if (Gamestate.state == Gamestate.PLAYING)
-            Gamestate.state = Gamestate.PAUSED;
-    }
+
 
 
     public Menu getMenu() {

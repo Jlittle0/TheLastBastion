@@ -14,11 +14,15 @@ public class LoadSave {
     }
 
     public static class Backgrounds {
-        public static final String MENU_BACKGROUND = "menu_background.png";
+        public static final String MENU_BACKGROUND = "menu_background.jpg";
+    }
+
+    public static class Tiles {
+        public static final String ENVIRONMENT_ATLAS = "environment_atlas.png";
     }
 
     public static class Buttons {
-        public static final String MENU_BUTTONS = "";
+        public static final String MENU_BUTTONS = "menu_buttons.png";
     }
 
     public static BufferedImage GetSpriteAtlas(String fileName) {
