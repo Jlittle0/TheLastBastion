@@ -3,6 +3,7 @@ package main;
 import gameStates.*;
 import gameStates.Menu;
 import ui.SoundControls;
+import utilz.*;
 
 import java.awt.*;
 
@@ -24,17 +25,18 @@ public class Game implements Runnable {
     public final static int TILES_DEFAULT_WIDTH = 32;
     public final static int TILES_DEFAULT_HEIGHT = 32;
 
-    public final static float SCALE = 1.00f;
+    public final static float SCALE = 1.25f;
 
     // Desired number of visible tiles for game screen
     public final static int TILES_IN_WIDTH  = 26;
     public final static int TILES_IN_HEIGHT  = 14;
 
+    public final static int TILES_SIZE = 32;
+
     // Found this on the internet to get the actual dimensions of the users screen.
     public final static GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
     public final static GraphicsDevice gd = ge.getDefaultScreenDevice();
     public final static GraphicsConfiguration gc = gd.getDefaultConfiguration();
-
     public final static Rectangle screenBounds = gc.getBounds();
 
     public final static Insets screenInsets = Toolkit.getDefaultToolkit().getScreenInsets(gc);
@@ -188,6 +190,13 @@ public class Game implements Runnable {
 
     public SoundControls getSoundControls() {
         return soundControls;
+    }
+
+    public void windowFocusLost() {
+        if (Gamestate.state == Gamestate.PLAYING) {
+            // Empty for now
+        }
+
     }
 
 }

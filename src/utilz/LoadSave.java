@@ -15,6 +15,7 @@ public class LoadSave {
 
     public static class Backgrounds {
         public static final String MENU_BACKGROUND = "menu_background.jpg";
+        public static final String GAME_WON = "congratulations.png";
     }
 
     public static class Tiles {

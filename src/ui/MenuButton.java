@@ -1,6 +1,7 @@
 package ui;
 
 import gameStates.Gamestate;
+import main.Game;
 import utilz.LoadSave;
 
 import java.awt.*;
@@ -38,7 +39,7 @@ public class MenuButton {
     }
 
     public void draw(Graphics g) {
-        g.drawImage(imgs[index], xPos - xOffsetCenter, yPos, MB_WIDTH, MB_HEIGHT, null);
+        g.drawImage(imgs[index], xPos - xOffsetCenter, yPos, (int)(MB_WIDTH * Game.SCALE), (int)(MB_HEIGHT * Game.SCALE), null);
     }
 
     public void update() {

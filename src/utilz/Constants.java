@@ -46,4 +46,8 @@ public class Constants {
             public static final int SLIDER_WIDTH = (int)(SLIDER_DEFAULT_WIDTH * Game.SCALE);
         }
     }
+
+    public static class PlayerConstants {
+
+    }
 }

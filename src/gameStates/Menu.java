@@ -11,6 +11,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 
+import static utilz.Constants.UI.Buttons.*;
+
 public class Menu extends State implements Statemethods {
 
     private MenuButton[] buttons = new MenuButton[4];
@@ -29,10 +31,10 @@ public class Menu extends State implements Statemethods {
 
     private void loadButtons() {
         // Manually setting all the buttons
-        buttons[0] = new MenuButton(Game.GAME_WIDTH / 32 * 6, (int)(250 * Game.SCALE), 0, Gamestate.PLAYING);
-        buttons[1] = new MenuButton(Game.GAME_WIDTH / 32 * 9, (int)(250 * Game.SCALE), 1, Gamestate.OPTIONS);
-        buttons[2] = new MenuButton(Game.GAME_WIDTH / 32 * 6, (int)(320 * Game.SCALE), 3, Gamestate.TUTORIAL);
-        buttons[3] = new MenuButton(Game.GAME_WIDTH / 32 * 9, (int)(320 * Game.SCALE), 2, Gamestate.QUIT);
+        buttons[0] = new MenuButton((int)(Game.GAME_WIDTH / 2 - MB_DEFAULT_WIDTH * Game.SCALE), (int)(250 * Game.SCALE), 0, Gamestate.PLAYING);
+        buttons[1] = new MenuButton(Game.GAME_WIDTH / 32 * 18, (int)(250 * Game.SCALE), 1, Gamestate.OPTIONS);
+        buttons[2] = new MenuButton(Game.GAME_WIDTH / 32 * 14, (int)(320 * Game.SCALE), 3, Gamestate.TUTORIAL);
+        buttons[3] = new MenuButton(Game.GAME_WIDTH / 32 * 18, (int)(320 * Game.SCALE), 2, Gamestate.QUIT);
     }
 
     public void update() {
