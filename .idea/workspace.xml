@@ -4,26 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04a3cecd-0132-4699-b650-e77c4747d808" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Levels/Tile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Towers/Tower.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Towers/TowerManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entities/Enemy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entities/EnemyManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entities/Entity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entities/Player.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui/GameCompletedOverlay.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui/GameOverOverlay.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui/LevelCompletedOverlay.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui/PauseOverlay.java" afterDir="false" />
+    <list default="true" id="04a3cecd-0132-4699-b650-e77c4747d808" name="Changes" comment="4/22/25">
+      <change afterPath="$PROJECT_DIR$/resources/playing_background.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui/GridOverlay.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Levels/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Levels/Level.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Levels/LevelHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Levels/LevelHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gameStates/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameStates/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Levels/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Levels/Tile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/EnemyManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/EnemyManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gameStates/Playing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameStates/Playing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/MenuButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/MenuButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utilz/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilz/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/GameOverOverlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/GameOverOverlay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/LevelCompletedOverlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/LevelCompletedOverlay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/PauseOverlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/PauseOverlay.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utilz/HelperMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilz/HelperMethods.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utilz/LoadSave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilz/LoadSave.java" afterDir="false" />
     </list>
@@ -117,12 +109,21 @@
       <option name="project" value="LOCAL" />
       <updated>1744831374329</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="4/22/25">
+      <option name="closed" value="true" />
+      <created>1745354490145</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1745354490145</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Class 1 Over" />
     <MESSAGE value="..." />
-    <option name="LAST_COMMIT_MESSAGE" value="..." />
+    <MESSAGE value="4/22/25" />
+    <option name="LAST_COMMIT_MESSAGE" value="4/22/25" />
   </component>
 </project>

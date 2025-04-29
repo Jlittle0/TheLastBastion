@@ -14,7 +14,7 @@ public class LevelHandler {
     private ArrayList<Level> levels;
     private int lvlIndex = 0;
 
-    public LevelHandler() {
+    public LevelHandler(Game game) {
         this.game =game;
         importOutsideSprites();
         levels =new ArrayList<Level>();
@@ -26,16 +26,16 @@ public class LevelHandler {
         lvlIndex = index;
         Level newLevel = levels.get(lvlIndex);
 
-        game.getPlaying().getEnemyManager().loadEnemies(newLevel);
-        game.getPlaying().getPlayer().loadLvlData(newLevel.getLevelData());
-        game.getPlaying().setMaxLevelOffset(newLevel.getLvlOffset());
-        game.getPlaying().getObjectManager().loadObjects(newLevel);
+//        game.getPlaying().getEnemyManager().loadEnemies(newLevel);
+//        game.getPlaying().getPlayer().loadLvlData(newLevel.getLevelData());
+//        game.getPlaying().setMaxLevelOffset(newLevel.getLvlOffset());
+//        game.getPlaying().getObjectManager().loadObjects(newLevel);
     }
 
     private void buildAllLevels() {
-        BufferedImage[] allLevels = LoadSave.GetLevelMaps();
-        for (BufferedImage img : allLevels)
-            levels.add(new Level(img));
+//        BufferedImage[] allLevels = LoadSave.GetLevelMaps();
+//        for (BufferedImage img : allLevels)
+//            levels.add(new Level(img));
     }
 
     private void importOutsideSprites() {

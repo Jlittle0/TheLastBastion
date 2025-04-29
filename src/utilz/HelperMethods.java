@@ -10,7 +10,7 @@ public class HelperMethods {
     // Red value = Base Tile
     // Green value = Decorative Tile
     // Blue value = Tower
-    public static int[][] GetLevelData(BufferedImage img) {
+    public static Color[][] GetLevelData(BufferedImage img) {
         int[][] lvlData = new int[img.getHeight()][img.getWidth()];
 
         for (int j = 0; j < img.getHeight(); j++)

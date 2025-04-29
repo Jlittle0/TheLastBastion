@@ -16,10 +16,12 @@ public class Level {
     private int maxLvlOffsetX;
     private Point enemySpawn;
     private Point playerSpawn;
+    private Tile[][] grid;
 
     public Level (BufferedImage img) {
         this.img = img;
-        createLevelData();
+        acquireLevelData();
+        createGrid();
         createEnemies();
         calculateOffsets();
         calculatePlayerSpawn();
@@ -27,6 +29,10 @@ public class Level {
 
     private void acquireLevelData () {
         lvlData = GetLevelData(img);
+    }
+
+    private void createGrid() {
+
     }
 
     private void calculateOffsets() {
@@ -43,10 +49,6 @@ public class Level {
 //        crabs = GetCrabs(img);
 //        worms = GetWorms(img);
 //        shockers = GetShockers(img);
-    }
-
-    private void createLevelData() {
-        lvlData = GetLevelData(img);
     }
 
     public Point getPlayerSpawn() {
@@ -66,6 +68,21 @@ public class Level {
     }
 
 
+    // What I need now is to have each level have a starting point for the grid, containing
+    // an X value, Y Value, and then size of the array or # of tiles. Likely would be stored
+    // alongside a bitmap.
 
+
+    /*
+    Level Data File
+    Contains:
+    - X and Y coordinate for top of grid, enemy spawn, and potentially player spawn.
+    - A list of individual "waves" that are read in as such and contain things like
+    - Enemy name (matches image file), number of enemies, wave length (in seconds)
+
+    This level class must also have a queue to store enemies in for both drawing priority and
+    targetting purposes.
+
+    */
 
 }
