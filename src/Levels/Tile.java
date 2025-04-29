@@ -35,6 +35,11 @@ public class Tile {
         bounds = new Polygon(xVals, yVals, 4);
     }
 
+    public void draw(Graphics g) {
+        g.setColor(Color.RED);
+        g.drawPolygon(bounds);
+    }
+
     public int getX() {
         return x;
     }
@@ -67,7 +72,9 @@ public class Tile {
         this.height = height;
     }
 
-    public boolean getOccupied() { return isOccupied};
+    public boolean getOccupied() {
+        return isOccupied;
+    }
 
     public void setOccupied(boolean occupied) {
         this.isOccupied = occupied;

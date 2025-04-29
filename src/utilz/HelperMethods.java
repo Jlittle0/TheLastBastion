@@ -11,15 +11,12 @@ public class HelperMethods {
     // Green value = Decorative Tile
     // Blue value = Tower
     public static Color[][] GetLevelData(BufferedImage img) {
-        int[][] lvlData = new int[img.getHeight()][img.getWidth()];
+        Color[][] lvlData = new Color[img.getWidth()][img.getHeight()];
 
-        for (int j = 0; j < img.getHeight(); j++)
-            for (int i = 0; i < img.getWidth(); i++) {
+        for (int i = 0; i < img.getWidth(); i++)
+            for (int j = 0; j < img.getHeight(); j++) {
                 Color color = new Color(img.getRGB(i, j));
-                int value = color.getRed();
-                if (value >= 121)
-                    value = 0;
-                lvlData[j][i] = value;
+                lvlData[i][j] = color;
             }
         return lvlData;
     }

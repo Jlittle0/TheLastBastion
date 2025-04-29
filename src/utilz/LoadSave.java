@@ -63,5 +63,22 @@ public class LoadSave {
         }
         return imgs;
     }
+
+    // Method to read in a CSV file
+
+    /*
+    Level Data - Format
+    {Enemy spawn location (X,Y), Path end location (X,Y), # of waves, duration in seconds}
+
+    Format:
+    Filename: Wave #
+    {Enemy Name, Total # spawned, Interval between each spawn, Delay in seconds b4 start}
+
+    Will attempt to create an enraged wave or mutated wave that causes the enemy stats to
+    spike and result in the user needing to build in preparaton for it.
+
+
+
+     */
 }
 

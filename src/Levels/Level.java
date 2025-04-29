@@ -6,17 +6,20 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
+import static main.Game.*;
 import static utilz.HelperMethods.*;
+import static gameStates.Playing.*;
 
 public class Level {
     private BufferedImage img;
-    private int[][] lvlData;
+    private Color[][] lvlData;
     private int lvlTilesWide;
     private int maxTilesOffset;
     private int maxLvlOffsetX;
     private Point enemySpawn;
     private Point playerSpawn;
     private Tile[][] grid;
+    private int startX, startY, tilesX, tilesY;
 
     public Level (BufferedImage img) {
         this.img = img;
@@ -29,10 +32,25 @@ public class Level {
 
     private void acquireLevelData () {
         lvlData = GetLevelData(img);
+        tilesX = lvlData.length;
+        tilesY = lvlData[0].length;
+        startX = 0;
+        startY = 0;
     }
 
     private void createGrid() {
+        grid = new Tile[tilesX][tilesY];
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[0].length; j++) {
+                grid[i][j] = new Tile(startX + (i - j) * TILES_WIDTH/2, startY - (i + j) * TILES_HEIGHT/2, TILES_WIDTH, TILES_HEIGHT);
+            }
+        }
+    }
 
+    public void drawGrid(Graphics g) {
+        for (Tile[] row: grid)
+            for (Tile tile : row)
+                tile.draw(g);
     }
 
     private void calculateOffsets() {
@@ -55,11 +73,11 @@ public class Level {
         return playerSpawn;
     }
 
-    public int getSpriteIndex(int x, int y) {
-        return lvlData[y][x];
+    public Color getSpriteIndex(int x, int y) {
+        return lvlData[x][y];
     }
 
-    public int[][] getLevelData() {
+    public Color[][] getLevelData() {
         return lvlData;
     }
 

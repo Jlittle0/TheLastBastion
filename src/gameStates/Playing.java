@@ -36,12 +36,22 @@ public class Playing extends State implements Statemethods {
     private boolean gameOver = false;
     private boolean lvlCompleted = false;
     private boolean gameCompleted = false;
+    private int scale;
+
+
+    public static int TILES_WIDTH, TILES_HEIGHT;
 
     public Playing(Game game) {
         super(game);
         initClasses();
-        backgroundImg = LoadSave.GetSpriteAtlas(LoadSave.Backgrounds.PLAYING_BACKGROUND);
+        loadBackground();
         loadLevel();
+    }
+
+    private void loadBackground() {
+        backgroundImg = LoadSave.GetSpriteAtlas(LoadSave.Backgrounds.PLAYING_BACKGROUND);
+        TILES_WIDTH = Game.GAME_WIDTH / backgroundImg.getWidth();
+        TILES_HEIGHT = Game.GAME_HEIGHT / backgroundImg.getHeight();
     }
 
     private void loadLevel() {
@@ -86,7 +96,7 @@ public class Playing extends State implements Statemethods {
         g.drawImage(backgroundImg, 0, 0, (int)(Game.GAME_WIDTH), (int)(Game.GAME_HEIGHT), null);
 
         // Draws each individual part of the game in the order of level tiles, player, then enemies
-//        levelHandler.draw(g);
+        levelHandler.draw(g, 0);
 //        enemyManager.draw(g);
 //        player.render(g);
 
