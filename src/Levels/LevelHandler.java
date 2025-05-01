@@ -12,13 +12,15 @@ public class LevelHandler {
     private Game game;
     private BufferedImage[] levelSprite;
     private ArrayList<Level> levels;
+    private Level currentLevel = new Level(null, null, 1.0f);
     private int lvlIndex = 0;
+    private int lvlScale;
 
     public LevelHandler(Game game) {
         this.game = game;
-        importOutsideSprites();
         levels = new ArrayList<Level>();
-        buildAllLevels();
+        importOutsideSprites();
+        buildLevel();
     }
 
     public void loadLevel(int index) {
@@ -32,10 +34,10 @@ public class LevelHandler {
 //        game.getPlaying().getObjectManager().loadObjects(newLevel);
     }
 
-    private void buildAllLevels() {
-        BufferedImage[] allLevels = LoadSave.GetLevelMaps();
-        for (BufferedImage img : allLevels)
-            levels.add(new Level(img));
+    private void buildLevel() {
+//        BufferedImage mapData = LoadSave.GetLevelMap(lvlIndex);
+//        BufferedImage lvlBg = LoadSave.GetLevelBg(lvlIndex);
+//        Level currentLevel = new Level(mapData, lvlBg, lvlScale);
     }
 
     private void importOutsideSprites() {
@@ -47,19 +49,19 @@ public class LevelHandler {
                 int index = j * 11 + i;
                 levelSprite[index] = img.getSubimage(i * 32, j * 32, 32, 32);
             }
+        lvlScale = 0;
     }
 
     public void draw(Graphics g, int lvloffset) {
-        System.out.println("test");
-        for (int i = 0; i < levels.get(lvlIndex).getLevelData().length; i++)
-            for (int j = 0; j < levels.get(lvlIndex).getLevelData()[0].length; j++) {
-                Color index = levels.get(lvlIndex).getSpriteIndex(i, j);
-                // Draws the base tiles using red value
-                g.drawImage(levelSprite[index.getRed()], Game.TILES_SIZE * i - lvloffset, Game.TILES_SIZE * j, Game.TILES_SIZE, Game.TILES_SIZE, null);
-                // Draws any decoration on tile using green value
-                g.drawImage(levelSprite[index.getGreen()], Game.TILES_SIZE * i - lvloffset, Game.TILES_SIZE * j, Game.TILES_SIZE, Game.TILES_SIZE, null);
-            }
-        levels.get(0).drawGrid(g);
+//        for (int i = 0; i < currentLevel.getLevelMapData().length; i++)
+//            for (int j = 0; j < currentLevel.getLevelMapData()[0].length; j++) {
+//                Color data = levels.get(lvlIndex).getSpriteIndex(i, j);
+//                // Draws the base tiles using red value
+//                g.drawImage(levelSprite[data.getRed()], Game.TILES_SIZE * i - lvloffset, Game.TILES_SIZE * j, Game.TILES_SIZE, Game.TILES_SIZE, null);
+//                // Draws any decoration on tile using green value
+//                g.drawImage(levelSprite[data.getGreen()], Game.TILES_SIZE * i - lvloffset, Game.TILES_SIZE * j, Game.TILES_SIZE, Game.TILES_SIZE, null);
+//            }
+        currentLevel.drawGrid(g);
     }
 
     public void update() {

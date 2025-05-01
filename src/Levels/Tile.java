@@ -7,22 +7,25 @@ public class Tile {
     private Polygon bounds;
     private boolean isOccupied;
     private boolean isBuildable;
+    private static float scale;
 
-    public Tile(int x, int y, int width, int height) {
+    public Tile(int x, int y, int width, int height, float scale) {
         this.x = x;
         this.y = y;
-        this.width = width;
-        this.height = height;
+        this.scale = scale;
+        this.width = (int)(width * scale);
+        this.height = (int)(height * scale);
         this.isOccupied = false;
         this.isBuildable = true;
         createBounds();
     }
 
-    public Tile(int x, int y, int width, int height, boolean occupied, boolean buildable) {
+    public Tile(int x, int y, int width, int height, float scale, boolean occupied, boolean buildable) {
         this.x = x;
         this.y = y;
-        this.width = width;
-        this.height = height;
+        this.scale = scale;
+        this.width = (int)(width * scale);
+        this.height = (int)(height * scale);
         this.isOccupied = occupied;
         this.isBuildable = buildable;
         createBounds();

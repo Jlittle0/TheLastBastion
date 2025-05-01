@@ -9,10 +9,6 @@ import java.io.InputStream;
 
 public class LoadSave {
 
-    public static class Testing {
-        public static final String test = "test.png";
-    }
-
     public static class Backgrounds {
         public static final String MENU_BACKGROUND = "menu_background.jpg";
         public static final String PLAYING_BACKGROUND = "playing_background.png";
@@ -28,8 +24,6 @@ public class LoadSave {
     }
 
     public static BufferedImage GetSpriteAtlas(String fileName) {
-        // Method idea taken from stackOverflow and it basically just makes sure the image
-        // with the specified fileName actually exists and whether or not it should be returned
         BufferedImage img = null;
         InputStream is = LoadSave.class.getResourceAsStream("/" + fileName);
         try {
@@ -46,22 +40,26 @@ public class LoadSave {
         return img;
     }
 
-    public static BufferedImage[] GetLevelMaps() {
-        // Gets the maps for every (manually countered) level and returns them in an array
-        // of BufferedImages. Might try to make this work regardless of the size so that the
-        // 4 isn't just a magic number but not currently sure how to do that.
-        int numLevels = 4;
-        BufferedImage[] imgs = new BufferedImage[numLevels];
-        for (int i = 0; i < numLevels; i++) {
+    public static BufferedImage GetLevelMap(int index) {
             Image temp = null;
             try {
-                temp = ImageIO.read(new File("resources/lvls/" + (i + 1) + ".png"));
+                temp = ImageIO.read(new File("resources/lvlsMaps/" + (index) + ".png"));
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-            imgs[i] = (BufferedImage) temp;
+            BufferedImage img = (BufferedImage)temp;
+        return img;
+    }
+
+    public static BufferedImage GetLevelBg(int index) {
+        Image temp = null;
+        try {
+            temp = ImageIO.read(new File("resources/lvlsBgs/" + (index) + ".png"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
-        return imgs;
+        BufferedImage img = (BufferedImage)temp;
+        return img;
     }
 
     // Method to read in a CSV file

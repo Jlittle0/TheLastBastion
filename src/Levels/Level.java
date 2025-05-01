@@ -11,8 +11,9 @@ import static utilz.HelperMethods.*;
 import static gameStates.Playing.*;
 
 public class Level {
-    private BufferedImage img;
-    private Color[][] lvlData;
+    private BufferedImage mapData;
+    private BufferedImage bg;
+    private Color[][] lvlMapData;
     private int lvlTilesWide;
     private int maxTilesOffset;
     private int maxLvlOffsetX;
@@ -20,29 +21,35 @@ public class Level {
     private Point playerSpawn;
     private Tile[][] grid;
     private int startX, startY, tilesX, tilesY;
+    private static float lvlScale;
 
-    public Level (BufferedImage img) {
-        this.img = img;
+    public Level (BufferedImage mapData, BufferedImage bg, float lvlScale) {
+        this.mapData = mapData;
+        this.bg = bg;
+        this.lvlScale = lvlScale;
         acquireLevelData();
         createGrid();
         createEnemies();
-        calculateOffsets();
-        calculatePlayerSpawn();
+//        calculatePlayerSpawn();
     }
 
     private void acquireLevelData () {
-        lvlData = GetLevelData(img);
-        tilesX = lvlData.length;
-        tilesY = lvlData[0].length;
-        startX = 0;
-        startY = 0;
+//        lvlMapData = GetLevelData(mapData);
+//        tilesX = lvlMapData.length;
+//        tilesY = lvlMapData[0].length;
+        tilesX = 20;
+        tilesY = 20;
+
+        // Read in CSV file containing data for specific level.
+        startX = 675;
+        startY = 125;
     }
 
     private void createGrid() {
         grid = new Tile[tilesX][tilesY];
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[0].length; j++) {
-                grid[i][j] = new Tile(startX + (i - j) * TILES_WIDTH/2, startY - (i + j) * TILES_HEIGHT/2, TILES_WIDTH, TILES_HEIGHT);
+                grid[i][j] = new Tile(startX + (i - j) * TILES_WIDTH/2, startY + (i + j) * TILES_HEIGHT/2, TILES_WIDTH, TILES_HEIGHT, lvlScale);
             }
         }
     }
@@ -53,14 +60,8 @@ public class Level {
                 tile.draw(g);
     }
 
-    private void calculateOffsets() {
-        lvlTilesWide = img.getWidth();
-        maxTilesOffset = lvlTilesWide - Game.TILES_IN_WIDTH;
-        maxLvlOffsetX = maxTilesOffset * Game.TILES_SIZE;
-    }
-
     private void calculatePlayerSpawn() {
-        playerSpawn = GetPlayerSpawn(img);
+        playerSpawn = GetPlayerSpawn(mapData);
     }
 
     private void createEnemies() {
@@ -74,15 +75,19 @@ public class Level {
     }
 
     public Color getSpriteIndex(int x, int y) {
-        return lvlData[x][y];
+        return lvlMapData[x][y];
     }
 
-    public Color[][] getLevelData() {
-        return lvlData;
+    public Color[][] getLevelMapData() {
+        return lvlMapData;
     }
 
     public int getLvlOffset() {
         return maxLvlOffsetX;
+    }
+
+    public BufferedImage getBgImg() {
+        return bg;
     }
 
 

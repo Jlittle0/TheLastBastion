@@ -43,15 +43,15 @@ public class Playing extends State implements Statemethods {
 
     public Playing(Game game) {
         super(game);
-        initClasses();
         loadBackground();
+        initClasses();
         loadLevel();
     }
 
     private void loadBackground() {
         backgroundImg = LoadSave.GetSpriteAtlas(LoadSave.Backgrounds.PLAYING_BACKGROUND);
-        TILES_WIDTH = Game.GAME_WIDTH / backgroundImg.getWidth();
-        TILES_HEIGHT = Game.GAME_HEIGHT / backgroundImg.getHeight();
+        TILES_WIDTH = 32 * Game.GAME_WIDTH / backgroundImg.getWidth();
+        TILES_HEIGHT = 16 * Game.GAME_HEIGHT / backgroundImg.getHeight();
     }
 
     private void loadLevel() {
