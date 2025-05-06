@@ -38,7 +38,6 @@ public class Playing extends State implements Statemethods {
     private boolean gameCompleted = false;
     private int scale;
 
-
     public static int TILES_WIDTH, TILES_HEIGHT;
 
     public Playing(Game game) {
@@ -49,6 +48,7 @@ public class Playing extends State implements Statemethods {
     }
 
     private void loadBackground() {
+        // Move all this stuff into the LevelHandler class later.
         backgroundImg = LoadSave.GetSpriteAtlas(LoadSave.Backgrounds.PLAYING_BACKGROUND);
         TILES_WIDTH = 32 * Game.GAME_WIDTH / backgroundImg.getWidth();
         TILES_HEIGHT = 16 * Game.GAME_HEIGHT / backgroundImg.getHeight();

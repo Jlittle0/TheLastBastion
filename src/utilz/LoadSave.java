@@ -10,7 +10,7 @@ import java.io.InputStream;
 public class LoadSave {
 
     public static class Backgrounds {
-        public static final String MENU_BACKGROUND = "menu_background.jpg";
+        public static final String MENU_BACKGROUND = "title_menu.png";
         public static final String PLAYING_BACKGROUND = "playing_background.png";
         public static final String GAME_WON = "congratulations.png";
     }

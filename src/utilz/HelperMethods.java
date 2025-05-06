@@ -32,4 +32,10 @@ public class HelperMethods {
             }
         return new Point(1 * Game.TILES_SIZE, 1 * Game.TILES_SIZE);
     }
+
+    public static Point GetNextLocation(Color[][] lvlData, Point p) {
+        // Check four neighboring tiles, return the coordinate of the one that makes sense.
+
+        return null;
+    }
 }

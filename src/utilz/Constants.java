@@ -50,4 +50,95 @@ public class Constants {
     public static class PlayerConstants {
 
     }
+
+    public static class Directions {
+        public static final int SE = 0;
+        public static final int SW = 1;
+        public static final int NE = 2;
+        public static final int NW = 3;
+    }
+
+    public static class EnemyConstants {
+        // Constants for enemy type
+        public static final int GOBLIN = 0;
+        public static final int ORC = 1;
+        public static final int WOLF = 2;
+        public static final int WOLF_ALPHA = 3;
+        public static final int BADGER = 4;
+
+        public static class Goblins {
+            public static final float GOBLIN_SCALE = 1.0f;
+
+            public static final int WALKING = 0;
+            public static final int RUNNING = 1;
+            public static final int DEAD = 2;
+
+            public static final int GOBLIN_DEFAULT_WIDTH = 10;
+            public static final int GOBLIN_DEFAULT_HEIGHT = 10;
+            public static final int GOBLIN_WIDTH = (int) (GOBLIN_DEFAULT_WIDTH * GOBLIN_SCALE * Game.SCALE);
+            public static final int GOBLIN_HEIGHT = (int) (GOBLIN_DEFAULT_HEIGHT * GOBLIN_SCALE * Game.SCALE);
+
+            public static final int GOBLIN_DRAWOFFSET_X = (int) (0 * Game.SCALE);
+            public static final int GOBLIN_DRAWOFFSET_Y = (int) (0 * Game.SCALE);
+
+            public static int GetSpriteAmount(int enemyType, int enemyState) {
+                switch (enemyType) {
+                    case GOBLIN:
+                        switch (enemyState) {
+                            case WALKING:
+                                return 6;
+                            case RUNNING:
+                                return 5;
+                            case DEAD:
+                                return 8;
+                        }
+                }
+                return 0;
+            }
+        }
+
+        public static class Orcs {
+            public static final float ORC_SCALE = 1.0f;
+            public static final int ORC = 1;
+
+            public static final int WALKING = 0;
+            public static final int RUNNING = 1;
+            public static final int DEAD = 2;
+
+            public static final int ORC_DEFAULT_WIDTH = 10;
+            public static final int ORC_DEFAULT_HEIGHT = 10;
+            public static final int ORC_WIDTH = (int) (ORC_DEFAULT_WIDTH * ORC_SCALE * Game.SCALE);
+            public static final int ORC_HEIGHT = (int) (ORC_DEFAULT_HEIGHT * ORC_SCALE * Game.SCALE);
+
+            public static final int ORC_DRAWOFFSET_X = (int) (0 * Game.SCALE);
+            public static final int ORC_DRAWOFFSET_Y = (int) (0 * Game.SCALE);
+
+            public static int GetSpriteAmount(int enemyType, int enemyState) {
+                switch (enemyType) {
+                    case ORC:
+                        switch (enemyState) {
+                            case WALKING:
+                                return 6;
+                            case RUNNING:
+                                return 5;
+                            case DEAD:
+                                return 8;
+                        }
+                }
+                return 0;
+            }
+        }
+
+        // Returns the max health of an enemy
+        public static int GetMaxHealth(int enemyType) {
+            switch(enemyType) {
+                case GOBLIN:
+                    return 10;
+                case ORC:
+                    return 50;
+                default:
+                    return 1;
+            }
+        }
+    }
 }
