@@ -13,6 +13,11 @@ import static utilz.Constants.EnemyConstants.Goblins.*;
 public class Goblin extends Enemy {
     private int attackBoxOffsetX;
 
+    public Goblin() {
+        super(0, 0, GOBLIN_WIDTH, GOBLIN_HEIGHT, GOBLIN);
+        initHitbox(0, 0);
+    }
+
     public Goblin(float x, float y) {
         super(x, y, GOBLIN_WIDTH, GOBLIN_HEIGHT, GOBLIN);
         // Change values

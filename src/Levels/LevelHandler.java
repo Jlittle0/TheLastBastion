@@ -12,7 +12,7 @@ public class LevelHandler {
     private Game game;
     private BufferedImage[] levelSprite;
     private ArrayList<Level> levels;
-    private Level currentLevel = new Level(null, null, 1.0f);
+    private Level currentLevel = new Level(LoadSave.GetSpriteAtlas(LoadSave.Backgrounds.LVLMAP), null, 1.0f);
     private int lvlIndex = 0;
     private int lvlScale;
 
@@ -69,7 +69,7 @@ public class LevelHandler {
     }
 
     public Level getCurrentLevel() {
-        return  levels.get(lvlIndex);
+        return currentLevel;
     }
 
     public int getLevelAmount() {

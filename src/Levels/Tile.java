@@ -5,8 +5,7 @@ import java.awt.*;
 public class Tile {
     private int x, y, width, height;
     private Polygon bounds;
-    private boolean isOccupied;
-    private boolean isBuildable;
+    private boolean isOccupied, isBuildable, isPath, isEnd;
     private static float scale;
 
     public Tile(int x, int y, int width, int height, float scale) {
@@ -16,7 +15,8 @@ public class Tile {
         this.width = (int)(width * scale);
         this.height = (int)(height * scale);
         this.isOccupied = false;
-        this.isBuildable = true;
+        this.isBuildable = false;
+        isPath = false;
         createBounds();
     }
 
@@ -41,6 +41,18 @@ public class Tile {
     public void draw(Graphics g) {
         g.setColor(Color.RED);
         g.drawPolygon(bounds);
+    }
+
+    public boolean isIn(Point p) {
+        return bounds.contains(p);
+    }
+
+    public boolean isPath() {
+        return isPath;
+    }
+
+    public void setPath(boolean isPath) {
+        this.isPath = isPath;
     }
 
     public int getX() {
@@ -89,6 +101,14 @@ public class Tile {
 
     public void setBuildable(boolean buildable) {
         this.isBuildable = buildable;
+    }
+
+    public boolean getEnd() {
+        return isEnd;
+    }
+
+    public void setEnd(boolean isEnd) {
+        this.isEnd = isEnd;
     }
 
     public Polygon getBounds() {

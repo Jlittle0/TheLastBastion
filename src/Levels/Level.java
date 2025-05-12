@@ -1,6 +1,8 @@
 package Levels;
 
+import entities.Enemy;
 import main.Game;
+import org.w3c.dom.css.RGBColor;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -9,6 +11,7 @@ import java.util.ArrayList;
 import static main.Game.*;
 import static utilz.HelperMethods.*;
 import static gameStates.Playing.*;
+import static utilz.LoadSave.GetLevelWaves;
 
 public class Level {
     private BufferedImage mapData;
@@ -19,9 +22,10 @@ public class Level {
     private int maxLvlOffsetX;
     private Point enemySpawn;
     private Point playerSpawn;
-    private Tile[][] grid;
+    public static Tile[][] grid;
     private int startX, startY, tilesX, tilesY;
     private static float lvlScale;
+    private ArrayList<Wave> waves;
 
     public Level (BufferedImage mapData, BufferedImage bg, float lvlScale) {
         this.mapData = mapData;
@@ -29,18 +33,19 @@ public class Level {
         this.lvlScale = lvlScale;
         acquireLevelData();
         createGrid();
-        createEnemies();
-//        calculatePlayerSpawn();
+        setGridBooleans();
     }
 
     private void acquireLevelData () {
-//        lvlMapData = GetLevelData(mapData);
-//        tilesX = lvlMapData.length;
-//        tilesY = lvlMapData[0].length;
-        tilesX = 20;
-        tilesY = 20;
+        lvlMapData = GetLevelData(mapData);
+        tilesX = lvlMapData.length;
+        tilesY = lvlMapData[0].length;
+//        tilesX = 20;
+//        tilesY = 20;
 
         // Read in CSV file containing data for specific level.
+        waves = GetLevelWaves(1);
+//        waves = createWaves(waveData);
         startX = 675;
         startY = 125;
     }
@@ -49,9 +54,21 @@ public class Level {
         grid = new Tile[tilesX][tilesY];
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[0].length; j++) {
-                grid[i][j] = new Tile(startX + (i - j) * TILES_WIDTH/2, startY + (i + j) * TILES_HEIGHT/2, TILES_WIDTH, TILES_HEIGHT, lvlScale);
+                grid[j][i] = new Tile(startX + (i - j) * TILES_WIDTH/2, startY + (i + j) * TILES_HEIGHT/2, TILES_WIDTH, TILES_HEIGHT, lvlScale);
             }
         }
+    }
+
+    private void setGridBooleans() {
+        for (int i = 0; i < lvlMapData.length; i++)
+            for (int j = 0; j < lvlMapData[0].length; j++) {
+                 if (lvlMapData[i][j].getGreen() == 255)
+                    grid[j][i].setBuildable(true);
+                else if (lvlMapData[i][j].getBlue() == 255)
+                    grid[j][i].setPath(true);
+                else if (lvlMapData[i][j].getRGB() == 0)
+                    grid[j][i].setEnd(true);
+            }
     }
 
     public void drawGrid(Graphics g) {
@@ -60,14 +77,8 @@ public class Level {
                 tile.draw(g);
     }
 
-    private void calculatePlayerSpawn() {
-        playerSpawn = GetPlayerSpawn(mapData);
-    }
-
-    private void createEnemies() {
-//        crabs = GetCrabs(img);
-//        worms = GetWorms(img);
-//        shockers = GetShockers(img);
+    public void printGrid() {
+        System.out.println(grid[0][17].isPath());
     }
 
     public Point getPlayerSpawn() {
@@ -88,6 +99,22 @@ public class Level {
 
     public BufferedImage getBgImg() {
         return bg;
+    }
+
+    public ArrayList<Enemy> getEnemies() {
+        return null;
+    }
+
+    public ArrayList<Wave> getWaves() {
+        return waves;
+    }
+
+    public Tile[][] getGrid() {
+        return grid;
+    }
+
+    public Point getStartPos() {
+        return new Point(startX, startY);
     }
 
 

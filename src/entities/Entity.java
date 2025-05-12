@@ -7,6 +7,7 @@ import java.awt.geom.Rectangle2D;
 
 public abstract class Entity {
     protected float x, y;
+    protected Point currentTile;
     protected int width, height;
     protected Rectangle2D.Float hitbox;
     protected int aniTick, aniIndex;
@@ -47,5 +48,9 @@ public abstract class Entity {
 
     public int getAniIndex() {
         return aniIndex;
+    }
+
+    public Point getCurrentTile() {
+        return currentTile;
     }
 }

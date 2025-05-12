@@ -1,5 +1,6 @@
 package gameStates;
 
+import Levels.Level;
 import entities.EnemyManager;
 import entities.Player;
 import Levels.LevelHandler;
@@ -50,14 +51,13 @@ public class Playing extends State implements Statemethods {
     private void loadBackground() {
         // Move all this stuff into the LevelHandler class later.
         backgroundImg = LoadSave.GetSpriteAtlas(LoadSave.Backgrounds.PLAYING_BACKGROUND);
-        TILES_WIDTH = 32 * Game.GAME_WIDTH / backgroundImg.getWidth();
-        TILES_HEIGHT = 16 * Game.GAME_HEIGHT / backgroundImg.getHeight();
+        TILES_WIDTH = 32 * Game.GAME_WIDTH / backgroundImg.getWidth() + 1;
+        TILES_HEIGHT = 16 * Game.GAME_HEIGHT / backgroundImg.getHeight() + 1;
     }
 
     private void loadLevel() {
         resetAll();
 //        player.setSpawn(levelHandler.getCurrentLevel().getPlayerSpawn());
-//        enemyManager.loadEnemies(levelHandler.getCurrentLevel());
     }
 
     private void initClasses() {
@@ -87,7 +87,7 @@ public class Playing extends State implements Statemethods {
             levelHandler.update();
 //            towerManager.update(levelHandler.getCurrentLevel().getLevelData(), player);
 //            player.update();
-//            enemyManager.update(levelHandler.getCurrentLevel().getLevelData(), player);
+            enemyManager.update();
         }
     }
 
@@ -97,7 +97,7 @@ public class Playing extends State implements Statemethods {
 
         // Draws each individual part of the game in the order of level tiles, player, then enemies
         levelHandler.draw(g, 0);
-//        enemyManager.draw(g);
+        enemyManager.draw(g);
 //        player.render(g);
 
         // Draw the paused or gameOver overlays depending on whether or not the game is paused and over
@@ -152,4 +152,15 @@ public class Playing extends State implements Statemethods {
     public void keyReleased(KeyEvent e) {
 
     }
+
+    public Level getCurrentLevel() {
+        return levelHandler.getCurrentLevel();
+    }
+
+    // For placing towers, what I think the best option would be is to have a boolean value
+    // called isPlacing and whenever that value is true, have the draw method include
+    // the grid as well as an image of the tower that snaps to each of the grid spots
+    // based on the location of the mouse on the board. There will also be a little message
+    // above the tower selection bar that says "press esc to leave tower placement"
+    // which will then turn the boolean into a false value.
 }
