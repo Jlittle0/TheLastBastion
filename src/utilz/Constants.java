@@ -47,7 +47,13 @@ public class Constants {
         }
     }
 
-    public static class PlayerConstants {
+    public static class TowerConstants {
+
+        public static final int TOWER_DEFAULT_WIDTH = 750;
+        public static final int TOWER_DEFAULT_HEIGHT = 1063;
+
+        public static final int TOWER_ICON_WIDTH = 60;
+        public static final int TOWER_ICON_HEIGHT = 90;
 
     }
 

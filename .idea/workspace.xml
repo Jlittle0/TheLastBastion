@@ -4,25 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04a3cecd-0132-4699-b650-e77c4747d808" name="Changes" comment="...">
-      <change afterPath="$PROJECT_DIR$/resources/levels/1/0.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lvlMaps/lvlMap.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/wolf_sprite.png" afterDir="false" />
+    <list default="true" id="04a3cecd-0132-4699-b650-e77c4747d808" name="Changes" comment=".">
+      <change afterPath="$PROJECT_DIR$/READ_ME.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Time Complexities" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/Crystal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/Gold.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/heart.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/towers.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui/Button.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui/TowerIcon.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui/TowerOverlay.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Levels/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Levels/Level.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Levels/LevelHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Levels/LevelHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Levels/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Levels/Tile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Levels/Wave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Levels/Wave.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Badger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Badger.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Enemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/EnemyManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/EnemyManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Entity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/Goblin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Goblin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Orc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Orc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Wolf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Wolf.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Player.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameStates/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameStates/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gameStates/Playing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameStates/Playing.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utilz/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilz/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utilz/HelperMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilz/HelperMethods.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utilz/LoadSave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilz/LoadSave.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,6 +41,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -61,7 +62,8 @@
     "last_opened_file_path": "/Users/joshlittle/IdeaProjects/The Last Bastion/resources",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0"
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -70,8 +72,9 @@
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/lvlMaps" />
       <recent name="$PROJECT_DIR$/resources" />
+      <recent name="$PROJECT_DIR$/resources/towers" />
+      <recent name="$PROJECT_DIR$/resources/lvlMaps" />
     </key>
   </component>
   <component name="RunManager">
@@ -159,7 +162,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746551429724</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary=".">
+      <option name="closed" value="true" />
+      <created>1747082069824</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1747082069824</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -169,6 +180,7 @@
     <MESSAGE value="4/29/25" />
     <MESSAGE value="3/1/25" />
     <MESSAGE value="..." />
-    <option name="LAST_COMMIT_MESSAGE" value="..." />
+    <MESSAGE value="." />
+    <option name="LAST_COMMIT_MESSAGE" value="." />
   </component>
 </project>

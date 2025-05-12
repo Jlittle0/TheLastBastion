@@ -1,0 +1,36 @@
+Topic: Updating and Redrawing the screen based on the current state of the game
+Time Complexity Analysis:
+For the menu state of the game, the screen is updated and redrawn proportionally to the time
+that passes in seconds as well as the number of buttons on the screen. There are four buttons
+on the menu, each of which are updated and drawn for each call from the main method which
+is called 200 and 120 times per second respectively.
+
+Topic: Reading in wave files and creating the corresponding wave objects for each level
+Time Complexity Analysis:
+This process, located within the LoadSave class, takes time proportional to the # of
+wave files and the # of lines within each file. The method functions by reading in each line,
+(potentially) breaking it apart into the separate components, and placing them into an
+arraylist that is then used to generate the wave. If N is the number of waves in a given level,
+and L is the average number of lines in each file, the time complexity would be O(N * L)
+
+Topic: Generating the enemies inside each wave file and animating them
+Time Complexity Analysis:
+First, to generate the enemies inside each file takes time proportion to the number of enemies
+in the wave (E). Next, each enemy has its own set of animations (A) which each have a set
+number of frames within them (B). Additionally, each animation is held on a timer, so that
+they don't go infinity fast, the animationTick (T) and each object on the screen is redrawn
+proportion to the FPS of the game (120). So, the overall time complexity for this process
+would be proportional to the total time that the enemy is on the screen, however, given that
+something like that isn't really something you calculate, the overall time complexity would be
+O(E * A * B / T)
+
+Topic: Allowing the enmies to move in accordance to the path on a given level/map and turn.
+Time Complexity Analysis:
+Each enemies' movements are decided within each update of the variables (UPS or 200). For
+every update, the current location of the enemy is calculated, which is approximately constant
+but can sometimes be proportion to the # of neighbors for each tile (4) because they may
+each need to be checked in the worst case scenario. Afterward, the next tile needs to be
+calculated which is also done in time proportion to the # of tiles around the current tile (4).
+Afterward, the tile is then checked to make sure it's the correct one and the direction of the
+enemy needs to be compared to its currentDirection to see whether it needs to be changed,
+another constant time process. Overall, the time complexity for this action is constant. O(1).

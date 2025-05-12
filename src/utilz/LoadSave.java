@@ -13,11 +13,19 @@ import static utilz.Constants.WaveConstants.WAVE_VALS;
 
 public class LoadSave {
 
+    public static final String TOWERS = "towers.png";
+
     public static class Backgrounds {
         public static final String MENU_BACKGROUND = "title_menu.png";
         public static final String PLAYING_BACKGROUND = "playing_background.png";
         public static final String GAME_WON = "congratulations.png";
         public static final String LVLMAP = "lvlMaps/lvlMap.png";
+    }
+
+    public static class Icon {
+        public static final String HEART = "heart.png";
+        public static final String GOLD = "Gold.png";
+        public static final String CRYSTAL = "Crystal.png";
     }
 
     public static class Tiles {

@@ -24,41 +24,10 @@ public class Goblin extends Enemy {
         initHitbox(22, 19);
     }
 
-    public void update(int[][] lvlData, Player player) {
+    public void update() {
 //        updateBehavior(lvlData, player);
         updateAnimationTick();
     }
-
-//    private void updateBehavior(int[][] lvlData, Player player) {
-//        if (firstUpdate)
-//            firstUpdateCheck(lvlData);
-//        if (inAir) {
-//            updateInAir(lvlData);
-//        } else {
-//            // Patrol
-//            switch (state) {
-//                case IDLE:
-//                    newState(RUNNING);
-//                    break;
-//                case RUNNING:
-//                    if (canSeePlayer(lvlData, player)) {
-//                        turnTowardsPlayer(player);
-//                        if (isPlayerInAttackRange(player))
-//                            newState(ATTACK);
-//                    }
-//                    move(lvlData);
-//                    break;
-//                case ATTACK:
-//                    if (aniIndex == 0)
-//                        attackChecked = false;
-//                    if (aniIndex == 3 && !attackChecked)
-//                        checkEnemyHit(attackBox, player);
-//                    break;
-//                case HIT:
-//                    break;
-//            }
-//        }
-//    }
 
     public int flipX() {
         // Flips the direction of the crab in the X direction for movement

@@ -44,7 +44,7 @@ public class Enemy extends Entity {
                 walkSpeed = Game.SCALE * 0.5f;
                 break;
             case WOLF:
-                walkSpeed = 1.1f * Game.SCALE;
+                walkSpeed = 1.0f * Game.SCALE;
                 break;
             default:
                 walkSpeed = Game.SCALE * 0.35f;
@@ -84,9 +84,9 @@ public class Enemy extends Entity {
         int[] nextTile = GetNextLocation(currentTile, walkDir);
         if (prevTile != nextTile || prevTile != currentTile)
             direction = getNextDirection(currentTile, nextTile, walkDir);
-        System.out.println("Previous - row: " + prevTile[0] + " col: " + prevTile[1]);
-        System.out.println("Current - row: " + currentTile[0] + " col: " + currentTile[1]);
-        System.out.println("Next - row: " + nextTile[0] + " col: " + nextTile[1]);
+//        System.out.println("Previous - row: " + prevTile[0] + " col: " + prevTile[1]);
+//        System.out.println("Current - row: " + currentTile[0] + " col: " + currentTile[1]);
+//        System.out.println("Next - row: " + nextTile[0] + " col: " + nextTile[1]);
         prevTile = currentTile;
         return direction;
     }

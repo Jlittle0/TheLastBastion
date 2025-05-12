@@ -2,23 +2,17 @@ package gameStates;
 
 import Levels.Level;
 import entities.EnemyManager;
-import entities.Player;
 import Levels.LevelHandler;
 import main.Game;
-import Towers.TowerManager;
-import ui.GameCompletedOverlay;
-import ui.GameOverOverlay;
-import ui.LevelCompletedOverlay;
-import ui.PauseOverlay;
+import ui.*;
 import utilz.LoadSave;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
-import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 
-import static utilz.Constants.PlayerConstants.*;
+import static utilz.LoadSave.Icon.*;
 
 
 public class Playing extends State implements Statemethods {
@@ -29,6 +23,7 @@ public class Playing extends State implements Statemethods {
     private GameOverOverlay gameOverOverlay;
     private LevelCompletedOverlay levelCompletedOverlay;
     private GameCompletedOverlay gameCompletedOverlay;
+    private TowerOverlay towerOverlay;
     private boolean paused = false;
     private boolean firstClick;
     private int lastAttack;
@@ -64,6 +59,7 @@ public class Playing extends State implements Statemethods {
         // Initializes all the classes etc. so that the constructor isn't so cluttered
         levelHandler = new LevelHandler(game);
         enemyManager = new EnemyManager(this);
+        towerOverlay = new TowerOverlay(this);
 //        player = new Player(200, 200, (int)(91 * Game.SCALE * PLAYER_SCALE), (int)(19 * Game.SCALE * PLAYER_SCALE), this);
 //        player.loadLvlData(levelHandler.getCurrentLevel().getLevelData());
 //        pauseOverlay = new PauseOverlay(this);
@@ -81,13 +77,10 @@ public class Playing extends State implements Statemethods {
             levelCompletedOverlay.update();
         } else if (gameOver){
             gameOverOverlay.update();
-//        } else if (playerDying) {
-//            player.update();
         } else {
             levelHandler.update();
-//            towerManager.update(levelHandler.getCurrentLevel().getLevelData(), player);
-//            player.update();
             enemyManager.update();
+            towerOverlay.update();
         }
     }
 
@@ -98,6 +91,31 @@ public class Playing extends State implements Statemethods {
         // Draws each individual part of the game in the order of level tiles, player, then enemies
         levelHandler.draw(g, 0);
         enemyManager.draw(g);
+
+        g.setColor(new Color(0, 0, 0, 77));
+        int squareSize = 100;
+        g.fillRect(Game.GAME_WIDTH/2 - squareSize/2, 700, squareSize, squareSize);
+        g.fillRect((int)(Game.GAME_WIDTH/2 - squareSize * 1.75), 700, squareSize, squareSize);
+        g.fillRect((int)(Game.GAME_WIDTH/2 + squareSize * .75), 700, squareSize, squareSize);
+
+        towerOverlay.draw(g);
+        g.setFont(new Font("Arial", Font.BOLD, 24));
+        g.setColor(Color.WHITE);
+        g.drawString("Wave 1", Game.GAME_WIDTH / 2 - 50, 50);
+
+        g.setFont(new Font("Arial", Font.BOLD, 16));
+        g.drawImage(LoadSave.GetSpriteAtlas(HEART), 40, 25, 26, 24, null);
+        g.setFont(new Font("Arial", Font.BOLD, 16));
+        g.setColor(Color.RED);
+        g.drawString("50", 70, 42);
+        g.drawImage(LoadSave.GetSpriteAtlas(GOLD), 40, 55, 26, 24, null);
+        g.setColor(Color.YELLOW);
+        g.drawString("200", 70, 72);
+        g.drawImage(LoadSave.GetSpriteAtlas(CRYSTAL), 40, 85, 30, 30, null);
+        g.setColor(Color.PINK);
+        g.drawString("0", 70, 110);
+
+        // Draws the tower icons
 //        player.render(g);
 
         // Draw the paused or gameOver overlays depending on whether or not the game is paused and over
