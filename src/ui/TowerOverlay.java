@@ -12,6 +12,7 @@ import static utilz.Constants.TowerConstants.*;
 public class TowerOverlay {
     private Playing playing;
     private TowerIcon[] towers;
+    private boolean pressed = false;
 
     public TowerOverlay(Playing playing) {
         this.playing = playing;
@@ -34,15 +35,17 @@ public class TowerOverlay {
     }
 
     public void draw(Graphics g) {
+        if (pressed)
+            playing.getCurrentLevel().drawGrid(g);
         for (TowerIcon t : towers)
             t.draw(g);
     }
 
     public void mousePressed(MouseEvent e) {
         for (TowerIcon t : towers)
-            if (isIn(e, t))
+            if (isIn(e, t)) {
                 t.setMousePressed(true);
-        else {
+                pressed = !pressed;
             }
             // Disable overlay
     }

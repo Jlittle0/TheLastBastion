@@ -29,8 +29,6 @@ public class TowerIcon extends Button {
 
     public void update() {
         index = rowIndex;
-        if (mousePressed)
-            System.out.println("pressed");
     }
 
     public void draw(Graphics g) {

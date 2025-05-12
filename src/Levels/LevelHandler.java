@@ -61,7 +61,7 @@ public class LevelHandler {
 //                // Draws any decoration on tile using green value
 //                g.drawImage(levelSprite[data.getGreen()], Game.TILES_SIZE * i - lvloffset, Game.TILES_SIZE * j, Game.TILES_SIZE, Game.TILES_SIZE, null);
 //            }
-        currentLevel.drawGrid(g);
+//        currentLevel.drawGrid(g);
     }
 
     public void update() {

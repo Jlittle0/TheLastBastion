@@ -19,10 +19,6 @@ public class Playing extends State implements Statemethods {
 //    private Player player;
     private LevelHandler levelHandler;
     private EnemyManager enemyManager;
-    private PauseOverlay pauseOverlay;
-    private GameOverOverlay gameOverOverlay;
-    private LevelCompletedOverlay levelCompletedOverlay;
-    private GameCompletedOverlay gameCompletedOverlay;
     private TowerOverlay towerOverlay;
     private boolean paused = false;
     private boolean firstClick;
@@ -52,7 +48,6 @@ public class Playing extends State implements Statemethods {
 
     private void loadLevel() {
         resetAll();
-//        player.setSpawn(levelHandler.getCurrentLevel().getPlayerSpawn());
     }
 
     private void initClasses() {
@@ -60,28 +55,12 @@ public class Playing extends State implements Statemethods {
         levelHandler = new LevelHandler(game);
         enemyManager = new EnemyManager(this);
         towerOverlay = new TowerOverlay(this);
-//        player = new Player(200, 200, (int)(91 * Game.SCALE * PLAYER_SCALE), (int)(19 * Game.SCALE * PLAYER_SCALE), this);
-//        player.loadLvlData(levelHandler.getCurrentLevel().getLevelData());
-//        pauseOverlay = new PauseOverlay(this);
-//        gameOverOverlay = new GameOverOverlay(this);
-//        gameCompletedOverlay = new GameCompletedOverlay(this);
-//        levelCompletedOverlay = new LevelCompletedOverlay(this);
     }
 
     public void update() {
-        // Checks whether the state of the game has changed and what state should be updated
-        // alongisde the standard playing state.
-        if (paused) {
-            pauseOverlay.update();
-        } else if (lvlCompleted) {
-            levelCompletedOverlay.update();
-        } else if (gameOver){
-            gameOverOverlay.update();
-        } else {
             levelHandler.update();
             enemyManager.update();
             towerOverlay.update();
-        }
     }
 
     public void draw(Graphics g) {
@@ -115,32 +94,9 @@ public class Playing extends State implements Statemethods {
         g.setColor(Color.PINK);
         g.drawString("0", 70, 110);
 
-        // Draws the tower icons
-//        player.render(g);
-
-        // Draw the paused or gameOver overlays depending on whether or not the game is paused and over
-//        if (paused) {
-//            g.setColor(new Color(0, 0, 0, 175));
-//            g.fillRect(0, 0, game.GAME_WIDTH, game.GAME_HEIGHT);
-//            pauseOverlay.draw(g);
-//        }
-//        else if (gameOver)
-//            gameOverOverlay.draw(g);
-//        else if (lvlCompleted)
-//            levelCompletedOverlay.draw(g);
-//        else if (gameCompleted)
-//            gameCompletedOverlay.draw(g);
     }
 
     public void resetAll() {
-        // resets everything
-//        gameOver = false;
-//        paused = false;
-//        lvlCompleted = false;
-//        playerDying = false;
-//        player.resetAll();
-//        enemyManager.resetAllEnemies();
-//        objectManager.resetAllObjects();
     }
 
     public void mouseClicked(MouseEvent e) {
@@ -148,7 +104,7 @@ public class Playing extends State implements Statemethods {
     }
 
     public void mousePressed(MouseEvent e) {
-
+        towerOverlay.mousePressed(e);
     }
 
     public void mouseReleased(MouseEvent e) {
